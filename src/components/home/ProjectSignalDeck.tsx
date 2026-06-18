@@ -55,8 +55,8 @@ export function ProjectSignalDeck() {
       style={{ "--deck-x": "62%", "--deck-y": "34%" } as React.CSSProperties}
     >
       <div aria-hidden className="absolute inset-0 overflow-hidden rounded-[3rem]">
-        <div className="absolute left-[-12%] top-24 h-20 w-[118%] -rotate-12 bg-[linear-gradient(90deg,transparent,rgba(95,247,210,0.22),rgba(255,255,255,0.12),transparent)] blur-2xl" />
-        <div className="absolute bottom-6 left-[8%] h-px w-[86%] rotate-6 bg-linear-to-r from-transparent via-white/25 to-transparent" />
+        <div className="absolute inset-x-6 top-20 h-px bg-linear-to-r from-transparent via-[var(--accent-teal)]/35 to-transparent" />
+        <div className="absolute inset-x-12 bottom-10 h-24 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(95,247,210,0.16),transparent_68%)] blur-2xl" />
       </div>
 
       <div className="glass-lens absolute inset-x-0 top-4 mx-auto aspect-[16/11] max-w-[700px] overflow-hidden rounded-[2.5rem] p-4 sm:p-5 lg:top-8">
@@ -67,13 +67,12 @@ export function ProjectSignalDeck() {
             alt={`${activeProject.name} website preview`}
             fill
             loading="eager"
-            fetchPriority={activeIndex === 0 ? "high" : "auto"}
             sizes="(min-width: 1024px) 48vw, 92vw"
             className="animate-in fade-in duration-700 object-cover object-top"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(circle_at_var(--deck-x)_var(--deck-y),rgba(255,255,255,0.1),transparent_20%),linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.42)),linear-gradient(130deg,rgba(255,255,255,0.18),transparent_22%,transparent_70%,rgba(95,247,210,0.1))]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_var(--deck-x)_var(--deck-y),rgba(255,255,255,0.1),transparent_20%),linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.42)),linear-gradient(90deg,rgba(255,255,255,0.14),transparent_24%,transparent_72%,rgba(95,247,210,0.1))]"
           />
           <div
             aria-hidden

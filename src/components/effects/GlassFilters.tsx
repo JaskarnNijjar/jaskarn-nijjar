@@ -1,6 +1,30 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { useSyncExternalStore } from "react";
+
+const subscribeToClient = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+
+function subscribeToReducedMotion(onStoreChange: () => void) {
+  if (typeof window === "undefined") {
+    return () => {};
+  }
+
+  const media = window.matchMedia(reducedMotionQuery);
+  media.addEventListener("change", onStoreChange);
+  return () => media.removeEventListener("change", onStoreChange);
+}
+
+function getReducedMotionSnapshot() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia(reducedMotionQuery).matches
+  );
+}
+
+const getReducedMotionServerSnapshot = () => false;
 
 /**
  * Shared SVG filter defs for the liquid-glass material. Rendered once near the
@@ -9,7 +33,17 @@ import { useReducedMotion } from "framer-motion";
  * dropped when the user prefers reduced motion.
  */
 export function GlassFilters() {
-  const reduced = useReducedMotion();
+  const reduced = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
+  );
+  const mounted = useSyncExternalStore(
+    subscribeToClient,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const shouldAnimate = !mounted || !reduced;
 
   return (
     <svg
@@ -33,7 +67,7 @@ export function GlassFilters() {
             seed={7}
             result="noise"
           >
-            {!reduced && (
+            {shouldAnimate && (
               <animate
                 attributeName="baseFrequency"
                 dur="26s"

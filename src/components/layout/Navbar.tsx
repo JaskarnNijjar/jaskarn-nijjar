@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -28,21 +28,15 @@ function Wordmark() {
     <Link
       href="/"
       aria-label={`${SITE.name}, home`}
-      className="flex items-center gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="rounded-md px-1 font-semibold tracking-tight text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      <span className="grid size-8 place-items-center rounded-lg border border-white/10 bg-white/[0.045] font-mono text-[11px] text-[var(--accent-teal)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
-        {SITE.shortName}
-      </span>
-      <span className="font-semibold tracking-tight text-foreground">
-        {SITE.name}
-      </span>
+      {SITE.name}
     </Link>
   );
 }
 
 export function Navbar() {
   const pathname = usePathname();
-  const reduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
@@ -55,12 +49,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.header
-      initial={reduceMotion ? false : { opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
-    >
+    <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <nav
         className={cn(
           "flex h-14 w-full max-w-4xl items-center justify-between gap-4 rounded-2xl border px-3 pl-3 shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-300",
@@ -173,6 +162,6 @@ export function Navbar() {
           </Sheet>
         </div>
       </nav>
-    </motion.header>
+    </header>
   );
 }

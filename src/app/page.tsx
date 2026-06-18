@@ -14,7 +14,7 @@ export default function Home() {
     email: SITE.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Surrey",
+      addressLocality: "Vancouver",
       addressRegion: "BC",
       addressCountry: "CA",
     },
@@ -36,11 +36,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <Hero />
-      <WorkShowcase />
-      <HomeServices />
-      <HomeProcess />
-      <HomeCTA />
+      <div className="home-build-world">
+        <div aria-hidden className="home-world-rails home-glass-current" />
+        <Hero />
+        <WorkShowcase />
+        <HomeServices />
+        <HomeProcess />
+        <HomeCTA />
+      </div>
     </>
   );
 }

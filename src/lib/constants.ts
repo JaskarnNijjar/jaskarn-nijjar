@@ -3,7 +3,7 @@ export const SITE = {
   shortName: "JN",
   url: "https://jaskarnnijjar.com",
   email: "jaskarn.nijjar75@gmail.com",
-  location: "Surrey, BC",
+  location: "Vancouver, BC",
   role: "Software Developer",
 } as const;
 

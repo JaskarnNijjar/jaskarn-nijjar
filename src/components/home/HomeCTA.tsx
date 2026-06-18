@@ -13,10 +13,11 @@ export function HomeCTA() {
   return (
     <section
       id="contact"
-      className="section-shell scroll-mt-28 py-20 sm:py-28"
+      className="contact-transmission section-shell scroll-mt-28 py-20 sm:py-28"
       aria-labelledby="contact-heading"
     >
-      <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl sm:p-10">
+      <div className="relative overflow-hidden border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl sm:p-10">
+        <div aria-hidden className="contact-signal-grid" />
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl">
             <p className="section-kicker">Contact</p>

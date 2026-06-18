@@ -8,10 +8,11 @@ export function WorkShowcase() {
   return (
     <section
       id="work"
-      className="section-shell scroll-mt-28 py-20 sm:py-28"
+      className="work-glass-cinema section-shell scroll-mt-28 py-20 sm:py-28"
       aria-labelledby="work-heading"
     >
-      <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <div aria-hidden className="work-cinema-light" />
+      <div className="relative grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
         <div>
           <p className="section-kicker">Client work</p>
           <h2
@@ -28,18 +29,19 @@ export function WorkShowcase() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-5">
+      <div className="work-preview-showcase work-frame-stack mt-14 grid gap-8">
         {CLIENT_PROJECTS.map((project, index) => (
           <article
             key={project.name}
-            className="group grid overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 backdrop-blur-xl lg:grid-cols-[1.15fr_0.85fr]"
+            className="work-showcase-frame work-feature-frame group relative grid overflow-hidden border border-white/10 bg-black/25 backdrop-blur-xl lg:grid-cols-[1.34fr_0.66fr]"
           >
+            <div aria-hidden className="work-frame-glow" />
             <Link
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${project.name} website`}
-              className="relative block aspect-[16/10] overflow-hidden bg-black outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-teal)] lg:aspect-auto lg:min-h-[25rem]"
+              className="work-preview-lens relative block aspect-[16/10] overflow-hidden bg-black outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-teal)] lg:aspect-auto lg:min-h-[29rem]"
             >
               <Image
                 src={project.previewImage}
@@ -47,16 +49,16 @@ export function WorkShowcase() {
                 fill
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchPriority={index === 0 ? "high" : "auto"}
-                sizes="(min-width: 1024px) 56vw, 92vw"
+                sizes="(min-width: 1024px) 62vw, 92vw"
                 className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
               />
               <div
                 aria-hidden
-                className="absolute inset-0 bg-linear-to-t from-black/45 via-transparent to-transparent"
+                className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent"
               />
             </Link>
 
-            <div className="flex flex-col justify-between gap-10 p-6 sm:p-8">
+            <div className="work-project-caption flex flex-col justify-between gap-10 p-6 sm:p-8 lg:p-10">
               <div>
                 <div className="flex flex-wrap items-center gap-3 text-xs text-foreground-subtle">
                   <span className="font-mono uppercase tracking-[0.16em] text-[var(--accent-teal)]">
@@ -77,7 +79,7 @@ export function WorkShowcase() {
                   {project.stack.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.13em] text-foreground-subtle"
+                      className="work-tech-pill rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.13em] text-foreground-subtle"
                     >
                       {item}
                     </span>

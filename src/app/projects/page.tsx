@@ -18,7 +18,8 @@ const developerNotes = [
 
 export default function ProjectsPage() {
   return (
-    <>
+    <div className="project-lab">
+      <div aria-hidden className="project-build-field" />
       <section className="section-shell pb-16 pt-32 sm:pt-40">
         <Link
           href="/"
@@ -43,12 +44,15 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="section-shell pb-24 sm:pb-32" aria-label="Technical projects">
+      <section
+        className="section-shell pb-24 sm:pb-32"
+        aria-label="Technical projects"
+      >
         <div className="space-y-6">
           {TECHNICAL_PROJECTS.map((project) => (
             <article
               key={project.name}
-              className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 backdrop-blur-xl"
+              className="project-system-card overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl"
             >
               <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
                 <div>
@@ -105,6 +109,6 @@ export default function ProjectsPage() {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
