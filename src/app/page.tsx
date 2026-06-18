@@ -3,38 +3,77 @@ import { HomeCTA } from "@/components/home/HomeCTA";
 import { HomeProcess } from "@/components/home/HomeProcess";
 import { HomeServices } from "@/components/home/HomeServices";
 import { WorkShowcase } from "@/components/home/WorkShowcase";
-import { CLIENT_PROJECTS, SITE } from "@/lib/constants";
+import type { Metadata } from "next";
+
+import { SITE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Jaskarn Nijjar",
+    locale: "en_CA",
+    url: "/",
+    title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
+    description:
+      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
+    description:
+      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+  },
+};
 
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": ["Person", "LocalBusiness"],
-    name: SITE.name,
-    url: SITE.url,
-    email: SITE.email,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Vancouver",
-      addressRegion: "BC",
-      addressCountry: "CA",
-    },
-    jobTitle: SITE.role,
-    areaServed: "Canada",
-    knowsAbout: [
-      "Website design",
-      "Next.js development",
-      "Local SEO",
-      "Performance optimization",
-      "Full-stack software development",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${SITE.url}/#person`,
+        name: SITE.name,
+        url: SITE.url,
+        email: SITE.email,
+        jobTitle: SITE.role,
+        knowsAbout: [
+          "Website design",
+          "Next.js development",
+          "Local SEO",
+          "Performance optimization",
+          "Full-stack software development",
+        ],
+        sameAs: [SITE.github, SITE.linkedin],
+        worksFor: { "@id": `${SITE.url}/#business` },
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE.url}/#business`,
+        name: SITE.name,
+        url: SITE.url,
+        email: SITE.email,
+        areaServed: "Canada",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Vancouver",
+          addressRegion: "BC",
+          addressCountry: "CA",
+        },
+        founder: { "@id": `${SITE.url}/#person` },
+      },
     ],
-    sameAs: CLIENT_PROJECTS.map((project) => project.href),
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
       />
       <div className="home-build-world">
         <div aria-hidden className="home-world-rails home-glass-current" />

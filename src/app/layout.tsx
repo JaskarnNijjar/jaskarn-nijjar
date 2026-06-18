@@ -25,6 +25,21 @@ export const metadata: Metadata = {
   },
   description:
     "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+  openGraph: {
+    type: "website",
+    siteName: "Jaskarn Nijjar",
+    locale: "en_CA",
+    url: "/",
+    title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
+    description:
+      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
+    description:
+      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+  },
 };
 
 export default function RootLayout({

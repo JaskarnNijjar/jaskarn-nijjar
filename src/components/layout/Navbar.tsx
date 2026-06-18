@@ -51,6 +51,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <nav
+        aria-label="Main"
         className={cn(
           "flex h-14 w-full max-w-4xl items-center justify-between gap-4 rounded-2xl border px-3 pl-3 shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-300",
           scrolled

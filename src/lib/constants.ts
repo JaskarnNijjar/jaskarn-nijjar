@@ -5,6 +5,8 @@ export const SITE = {
   email: "jaskarn.nijjar75@gmail.com",
   location: "Vancouver, BC",
   role: "Software Developer",
+  github: "https://github.com/jaskarnnijjar",
+  linkedin: "https://linkedin.com/in/jaskarnnijjar",
 } as const;
 
 export type NavLink = {

@@ -8,6 +8,24 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Software projects by Jaskarn Nijjar, including RepuFlow and NorthTunnel.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Jaskarn Nijjar",
+    locale: "en_CA",
+    url: "/projects",
+    title: "Projects | Jaskarn Nijjar",
+    description:
+      "Software projects by Jaskarn Nijjar, including RepuFlow and NorthTunnel.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Jaskarn Nijjar",
+    description:
+      "Software projects by Jaskarn Nijjar, including RepuFlow and NorthTunnel.",
+  },
 };
 
 const developerNotes = [
