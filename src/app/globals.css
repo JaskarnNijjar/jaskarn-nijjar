@@ -8,7 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Fonts — wired to the next/font CSS variables set on <html> in layout.tsx */
+  /* Fonts wired to the next/font CSS variables set on <html> in layout.tsx */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-geist-sans);
@@ -83,7 +83,7 @@
   --popover: #151515;
   --popover-foreground: #fafafa;
 
-  /* Accent is TBD — use white as the primary interactive color for now */
+  /* Accent is TBD, use white as the primary interactive color for now */
   --primary: #fafafa;
   --primary-foreground: #0a0a0a;
 

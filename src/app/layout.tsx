@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://jaskarnnijjar.com"),
   title: {
-    default: "Jaskarn Nijjar — Web Developer in Surrey, BC",
-    template: "%s — Jaskarn Nijjar",
+    default: "Jaskarn Nijjar | Web Developer in Surrey, BC",
+    template: "%s | Jaskarn Nijjar",
   },
   description:
-    "Custom websites and full-stack applications for businesses. Fast, SEO-optimized, and built to convert — by a web developer based in Surrey, BC.",
+    "Custom websites and full-stack applications for businesses. Fast, SEO-optimized, and built to convert, by a web developer based in Surrey, BC.",
 };
 
 export default function RootLayout({

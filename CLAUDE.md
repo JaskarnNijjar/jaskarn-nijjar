@@ -132,7 +132,8 @@ One-person premium studio. Not a freelancer begging for work. Not a corporate ag
 - No over-promising: say what you actually do, specifically
 - Active voice always
 - Short sentences. Short paragraphs. Let the work speak.
-- CTAs should be direct: "Start a project," "Get in touch," "See my work" — not "Let's embark on a journey together"
+- No em dashes anywhere in copy or text. This applies to all visible site copy, headlines, metadata, and content. Use a period, comma, colon, or parentheses, or restructure the sentence instead.
+- CTAs should be direct: "Start a project," "Get in touch," "See my work." Not "Let's embark on a journey together."
 
 ### About Jaskarn
 Web developer based in Surrey, BC. Builds custom websites for businesses — fast, SEO-optimized, designed to convert. Works directly with business owners, no middlemen. Also builds full-stack applications and has systems-level experience (VPN from scratch, sentiment analysis SaaS). The range is a selling point.

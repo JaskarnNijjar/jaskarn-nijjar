@@ -27,7 +27,7 @@ function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label={`${SITE.name} — home`}
+      aria-label={`${SITE.name}, home`}
       className={cn(
         "group flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md",
         className,
