@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { GlassFilters } from "@/components/effects/GlassFilters";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://jaskarnnijjar.com"),
   title: {
-    default: "Jaskarn Nijjar | Web Developer in Surrey, BC",
+    default: "Jaskarn Nijjar | Software Developer in Surrey, BC",
     template: "%s | Jaskarn Nijjar",
   },
   description:
-    "Custom websites and full-stack applications for businesses. Fast, SEO-optimized, and built to convert, by a web developer based in Surrey, BC.",
+    "Custom websites and full-stack applications for businesses, built by a software developer based in Surrey, BC.",
 };
 
 export default function RootLayout({
@@ -37,9 +38,10 @@ export default function RootLayout({
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+      <body className="relative min-h-full overflow-x-hidden bg-background text-foreground font-sans">
+        <GlassFilters />
         <Navbar />
-        <main className="flex flex-1 flex-col">{children}</main>
+        <main className="relative z-10 flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>
     </html>

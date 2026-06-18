@@ -1,108 +1,54 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { ArrowRight, MapPin } from "lucide-react";
 
+import { ProjectSignalDeck } from "@/components/home/ProjectSignalDeck";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/constants";
 
-const ParticleField = dynamic(
-  () => import("@/components/effects/ParticleField").then((m) => m.ParticleField),
-  { ssr: false, loading: () => null },
-);
-
-const container: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
-  },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
 export function Hero() {
-  const reduced = useReducedMotion();
-
   return (
-    <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6">
-      <div aria-hidden className="absolute inset-0 z-0">
-        <div className="absolute left-1/2 top-1/2 h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_60%)]" />
-      </div>
+    <section className="relative isolate overflow-hidden border-b border-white/10 px-6 pb-10 pt-24 sm:pb-8 lg:pt-28">
+      <div className="section-shell relative z-10 grid min-h-[calc(100svh-10rem)] items-center gap-12 lg:grid-cols-[1fr_1fr]">
+        <div className="max-w-3xl">
+          <div className="hero-reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.22em] text-foreground-subtle shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+            <MapPin className="size-3 text-[var(--accent-teal)]" />
+            Software Developer in {SITE.location}
+          </div>
 
-      <div aria-hidden className="absolute inset-0 z-0">
-        <ParticleField />
+          <h1 className="hero-reveal mt-7 text-balance text-5xl font-semibold leading-[0.96] tracking-tight text-foreground sm:text-6xl lg:text-6xl xl:text-7xl">
+            I build fast custom websites for businesses.
+          </h1>
+
+          <p className="hero-reveal mt-7 max-w-2xl text-pretty text-lg leading-8 text-foreground-muted sm:text-xl">
+            I work with business owners who need a clear site, real project
+            proof, search basics, and a simple way for customers to get in
+            touch.
+          </p>
+
+          <div className="hero-reveal mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button asChild className="h-12 rounded-xl px-6 text-base">
+              <Link href="/#contact">
+                Start a project
+                <ArrowRight className="ml-2 size-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="glass-card h-12 rounded-xl px-6 text-base text-foreground hover:bg-white/10"
+            >
+              <Link href="/#work">See client work</Link>
+            </Button>
+          </div>
+        </div>
+
+        <ProjectSignalDeck />
       </div>
 
       <div
         aria-hidden
-        className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,10,0.65),transparent_70%)]"
+        className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent"
       />
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-40 bg-gradient-to-b from-transparent to-background"
-      />
-
-      <motion.div
-        variants={container}
-        initial={reduced ? false : "hidden"}
-        animate="show"
-        className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center"
-      >
-        <motion.p
-          variants={item}
-          className="font-mono text-xs uppercase tracking-[0.2em] text-foreground-subtle"
-        >
-          {SITE.role} based in {SITE.location}
-        </motion.p>
-
-        <motion.h1
-          variants={item}
-          className="mt-6 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl"
-        >
-          I build websites that bring in business.
-        </motion.h1>
-
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-xl text-pretty text-lg leading-7 text-foreground-muted"
-        >
-          Fast, custom websites for businesses that want results. Built to rank
-          on Google and turn visitors into paying customers.
-        </motion.p>
-
-        <motion.div
-          variants={item}
-          className="mt-10 flex flex-col gap-3 sm:flex-row"
-        >
-          <Button asChild className="h-12 px-6 text-base">
-            <Link href="/contact">Start a Project</Link>
-          </Button>
-          <Button asChild variant="outline" className="h-12 px-6 text-base">
-            <Link href="/work">See My Work</Link>
-          </Button>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={reduced ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
-      >
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-subtle">
-          Scroll
-        </span>
-        <span className="h-8 w-px bg-gradient-to-b from-foreground/40 to-transparent" />
-      </motion.div>
     </section>
   );
 }
