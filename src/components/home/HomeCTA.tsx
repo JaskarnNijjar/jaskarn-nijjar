@@ -13,11 +13,11 @@ export function HomeCTA() {
   return (
     <section
       id="contact"
-      className="contact-transmission section-shell scroll-mt-28 py-20 sm:py-28"
+      className="contact-studio-frame section-shell scroll-mt-28 py-20 sm:py-28"
       aria-labelledby="contact-heading"
     >
-      <div className="relative overflow-hidden border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl sm:p-10">
-        <div aria-hidden className="contact-signal-grid" />
+      <div className="relative overflow-hidden border border-white/10 bg-white/[0.035] p-6 sm:p-10">
+        <div aria-hidden className="contact-studio-mark" />
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl">
             <p className="section-kicker">Contact</p>
@@ -43,7 +43,7 @@ export function HomeCTA() {
             <Button
               asChild
               variant="ghost"
-              className="h-12 rounded-xl border border-white/10 px-6 text-base text-foreground hover:bg-white/10"
+              className="h-12 rounded-lg border border-white/10 px-6 text-base text-foreground hover:bg-white/10"
             >
               <Link href="/projects">
                 See developer projects
@@ -56,9 +56,9 @@ export function HomeCTA() {
         <div className="mt-8 border-t border-white/10 pt-5">
           <a
             href={`mailto:${SITE.email}`}
-            className="inline-flex items-center gap-2 text-sm text-foreground-muted outline-none transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--accent-teal)]"
+            className="inline-flex items-center gap-2 text-sm text-foreground-muted outline-none transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--accent-signal)]"
           >
-            <Mail className="size-4 text-[var(--accent-teal)]" />
+            <Mail className="size-4 text-[var(--accent-signal)]" />
             {SITE.email}
           </a>
         </div>

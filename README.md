@@ -2,7 +2,7 @@
 
 Personal business site and portfolio for Jaskarn Nijjar, a software developer based in Vancouver, BC.
 
-The site is business-first. The homepage is meant to help business owners understand what Jaskarn builds, see recent client websites, review the process, and get in touch. The `/projects` page gives more technical detail for developer and recruiter audiences.
+The site is business-first. The homepage helps business owners understand what Jaskarn builds, see recent client websites, review the process, and get in touch. The `/projects` page gives more technical detail for developer and recruiter audiences.
 
 ## Current Site Structure
 
@@ -19,16 +19,30 @@ The sitemap currently includes `/` and `/projects`.
 
 The homepage is composed from these components:
 
-- `Hero`: business-focused headline, location, CTA, and animated build-stage background.
+- `Hero`: business-focused headline, location, CTA, animated kinetic code backdrop, and hero-only glass website showcase.
 - `WorkShowcase`: recent business websites with large clickable previews.
-- `HomeServices`: services for business websites, redesigns, SEO and speed cleanup, and ongoing improvements.
-- `HomeProcess`: a route-style project process section.
+- `HomeServices`: services for business websites, redesigns, performance and SEO, and ongoing improvements.
+- `HomeProcess`: production-track project process section.
 - `HomeCTA`: contact section.
 
 The projects page includes:
 
 - RepuFlow, a reputation management app for small service businesses.
 - NorthTunnel, a Layer 3 VPN built from scratch in Python.
+
+## Design System
+
+The current design is a dark, studio-grade developer portfolio with a focused cyan accent system. The primary accent token is `--accent-signal: #00e5ff`.
+
+Important visual pieces:
+
+- Non-mouse-reactive animated hero canvas in `HeroKineticBackdrop`
+- Hero-only glass frame showcase in `HeroGlassShowcase`
+- Clickable work cards in `WorkShowcase`
+- Studio-style services, process, and contact sections
+- Dark technical project cards on `/projects`
+
+The glass showcase belongs only to the landing hero. The "Recent business websites" section should remain clear, clickable, and easy to scan on mobile and desktop.
 
 ## Client Work
 
@@ -47,9 +61,8 @@ Preview images live in `public/work-previews/`.
 - React 19
 - TypeScript
 - Tailwind CSS 4
-- `next/font` with Geist and Geist Mono
+- `next/font` with Hanken Grotesk and Spline Sans Mono
 - `next/image`
-- Framer Motion
 - Lucide React
 - Radix UI and local UI components
 - `@vercel/og`
@@ -57,10 +70,14 @@ Preview images live in `public/work-previews/`.
 ## Important Files
 
 - `src/app/page.tsx`: homepage composition and homepage JSON-LD
-- `src/app/layout.tsx`: global metadata, fonts, navbar, footer, and layout shell
+- `src/app/layout.tsx`: global metadata, fonts, navbar, footer, layout shell, and `GlassFilters`
 - `src/app/projects/page.tsx`: technical projects page
+- `src/app/opengraph-image.tsx`: generated Open Graph image
 - `src/lib/constants.ts`: site metadata, nav links, client projects, services, and technical projects
 - `src/app/globals.css`: global Tailwind setup and custom visual system
+- `src/components/home/HeroKineticBackdrop.tsx`: animated hero canvas
+- `src/components/home/HeroGlassShowcase.tsx`: hero-only glass website showcase
+- `src/components/home/WorkShowcase.tsx`: recent business websites
 - `tests/homepage-content.test.mjs`: content and structure guardrails
 
 ## Commands
@@ -70,6 +87,7 @@ npm run dev
 npm test
 npm run lint
 npm run build
+npm run start
 ```
 
 Run the dev server at `http://localhost:3000`.
@@ -79,11 +97,12 @@ Run the dev server at `http://localhost:3000`.
 Current SEO-related pieces:
 
 - Global metadata in `src/app/layout.tsx`
+- Homepage metadata and JSON-LD using `Person` and `LocalBusiness`
 - Projects page metadata in `src/app/projects/page.tsx`
-- Homepage JSON-LD using `Person` and `LocalBusiness`
+- Generated Open Graph image in `src/app/opengraph-image.tsx`
 - Generated sitemap in `src/app/sitemap.ts`
 - Generated robots file in `src/app/robots.ts`
-- Client website previews use `next/image` with alt text
+- Client website previews use `next/image` with alt text in the clickable work section
 - Redirect routes keep older section URLs working
 
 ## Content Rules
@@ -95,17 +114,15 @@ Current SEO-related pieces:
 - Do not use em dashes in visible copy or documentation.
 - Keep business owners as the primary audience.
 - Keep technical projects available, but secondary to client work.
+- Do not change site copy when the request is design-only.
 
-## Design Notes
+## Design Guardrails
 
-The current design uses a dark glass style with teal, blue, violet, and gold accents. It should feel polished and custom, but still load quickly.
-
-Important current visual pieces:
-
-- Animated hero build-stage background
-- Large glass-framed client website previews
-- Glass services board
-- Route-style process board
-- Dark project page with technical project cards
-
-When changing visuals, keep the site coherent with those pieces and avoid generic grid backgrounds or filler decoration.
+- Keep the cyan accent coherent across the site.
+- Do not reintroduce gold, orange, lime, or mismatched accent colors.
+- Do not reintroduce generic grid backgrounds.
+- Do not make the hero background reactive to mouse movement.
+- Do not move the glass showcase into the "Recent business websites" section.
+- Keep the work showcase readable and mobile-friendly.
+- Respect `prefers-reduced-motion`.
+- Keep motion polished, purposeful, and fast.

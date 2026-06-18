@@ -16,13 +16,13 @@ const serviceSignals = [
   ["Metadata", "Images", "Vitals"],
   ["Sections", "Fixes", "Conversion"],
 ] as const;
-const serviceAccents = ["#5ff7d2", "#7aa7ff", "#8e6cff", "#f2d06b"] as const;
+const serviceAccents = ["#00e5ff", "#f5f5ef", "#a6a69d", "#0b7f8d"] as const;
 
 export function HomeServices() {
   return (
     <section
       id="services"
-      className="service-rack border-y border-white/10 bg-white/[0.018] py-20 sm:py-28"
+      className="service-studio-section border-y border-white/10 bg-white/[0.018] py-20 sm:py-28"
       aria-labelledby="services-heading"
     >
       <div className="section-shell">
@@ -43,22 +43,20 @@ export function HomeServices() {
           </p>
         </div>
 
-        <div className="service-atelier-board mt-14">
-          <div aria-hidden className="service-atelier-beam" />
+        <div className="service-studio-board mt-14">
           {SERVICES.map((service, index) => {
             const Icon = icons[index];
             return (
               <article
                 key={service.title}
-                className="service-instrument-card relative overflow-hidden border border-white/10 bg-black/25 backdrop-blur-xl"
+                className="service-studio-card relative overflow-hidden border border-white/10 bg-black/25"
                 style={
                   {
                     "--service-accent": serviceAccents[index],
                   } as CSSProperties
                 }
               >
-                <div aria-hidden className="service-card-glass" />
-                <div aria-hidden className="service-card-shine" />
+                <div aria-hidden className="service-card-rule" />
 
                 <div className="relative z-10 flex min-h-full flex-col p-6 sm:p-7">
                   <div className="flex items-start justify-between gap-5">

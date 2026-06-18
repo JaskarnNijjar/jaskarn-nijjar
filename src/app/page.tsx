@@ -75,8 +75,7 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <div className="home-build-world">
-        <div aria-hidden className="home-world-rails home-glass-current" />
+      <div className="home-studio-world">
         <Hero />
         <WorkShowcase />
         <HomeServices />

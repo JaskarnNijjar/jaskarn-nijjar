@@ -29,10 +29,10 @@ export function HomeProcess() {
   return (
     <section
       id="process"
-      className="process-launchline section-shell scroll-mt-28 py-20 sm:py-28"
+      className="process-production-track section-shell scroll-mt-28 py-20 sm:py-28"
       aria-labelledby="process-heading"
     >
-      <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+      <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
         <div>
           <p className="section-kicker">Process</p>
           <h2
@@ -41,37 +41,29 @@ export function HomeProcess() {
           >
             How a project works.
           </h2>
+          <p className="mt-5 max-w-sm text-base leading-7 text-foreground-muted">
+            Four stages from the first conversation to launch. You always know
+            what is happening and what you get at the end of each one.
+          </p>
         </div>
 
-        <div className="process-route-board relative">
-          <div className="process-route-topline">
-            <span>Project path</span>
-            <span>01-04</span>
-          </div>
-          <ol className="process-route-list">
-            {steps.map((step, index) => (
-              <li key={step.title} className="process-route-lane">
-                <span className="process-route-node">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="process-route-copy">
-                  <h3 className="text-2xl font-medium tracking-tight text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-foreground-muted">
-                    {step.text}
-                  </p>
-                  <div className="process-route-tags mt-5">
-                    {step.checks.map((check) => (
-                      <span key={check}>{check}</span>
-                    ))}
-                  </div>
-                </div>
-                <span className="process-route-output">{step.output}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ol className="process-stages">
+          {steps.map((step) => (
+            <li key={step.title} className="process-stage">
+              <span className="process-stage-marker" aria-hidden />
+              <div className="process-stage-head">
+                <h3 className="process-stage-title">{step.title}</h3>
+                <span className="process-stage-output">{step.output}</span>
+              </div>
+              <p className="process-stage-text">{step.text}</p>
+              <div className="process-stage-tags">
+                {step.checks.map((check) => (
+                  <span key={check}>{check}</span>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

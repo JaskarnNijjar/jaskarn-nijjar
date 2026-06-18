@@ -41,7 +41,7 @@ export default function ProjectsPage() {
       <section className="section-shell pb-16 pt-32 sm:pt-40">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-foreground-muted outline-none transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--accent-teal)]"
+          className="inline-flex items-center gap-2 text-sm text-foreground-muted outline-none transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--accent-signal)]"
         >
           <ArrowLeft className="size-4" />
           Back to home
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             >
               <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent-teal)]">
+                  <p className="text-xs font-medium text-[var(--accent-signal)]">
                     {project.type}
                   </p>
                   <h2 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
@@ -88,7 +88,7 @@ export default function ProjectsPage() {
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-foreground outline-none transition hover:border-[rgba(95,247,210,0.35)] hover:text-[var(--accent-teal)] focus-visible:ring-2 focus-visible:ring-[var(--accent-teal)]"
+                    className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-foreground outline-none transition hover:border-[rgba(0,229,255,0.42)] hover:text-[var(--accent-signal)] focus-visible:ring-2 focus-visible:ring-[var(--accent-signal)]"
                   >
                     <Code2 className="size-4" />
                     View on GitHub
@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-foreground-subtle">
+                  <h3 className="text-sm font-medium tracking-wide text-foreground-subtle">
                     What I built
                   </h3>
                   <ul className="mt-5 space-y-4">
@@ -115,7 +115,7 @@ export default function ProjectsPage() {
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.13em] text-foreground-subtle"
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[11px] tracking-tight text-foreground-subtle"
                       >
                         {item}
                       </span>

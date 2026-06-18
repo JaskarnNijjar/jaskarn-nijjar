@@ -1,23 +1,24 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
-import { HeroBuildStage } from "@/components/home/HeroBuildStage";
-import { ProjectSignalDeck } from "@/components/home/ProjectSignalDeck";
+import { HeroGlassShowcase } from "@/components/home/HeroGlassShowcase";
+import { HeroKineticBackdrop } from "@/components/home/HeroKineticBackdrop";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070808] px-6 pb-10 pt-24 sm:pb-8 lg:pt-28">
-      <HeroBuildStage />
-      <div className="section-shell relative z-10 grid min-h-[calc(100svh-10rem)] items-center gap-12 lg:grid-cols-[1fr_1fr]">
-        <div className="max-w-3xl">
-          <div className="hero-reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.22em] text-foreground-subtle shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-            <MapPin className="size-3 text-[var(--accent-teal)]" />
+    <section className="hero-canvas-stage relative isolate overflow-hidden border-b border-white/10 px-6">
+      <HeroKineticBackdrop />
+      <HeroGlassShowcase />
+      <div className="section-shell relative z-10 flex min-h-[calc(100svh-4rem)] items-center py-24 sm:py-28 lg:py-32">
+        <div className="hero-copy max-w-4xl">
+          <div className="hero-reveal hero-location-pill inline-flex items-center gap-2 text-xs tracking-wide text-foreground-subtle">
+            <MapPin className="size-3 text-[var(--accent-signal)]" />
             Software Developer in {SITE.location}
           </div>
 
-          <h1 className="hero-reveal mt-7 text-balance text-5xl font-semibold leading-[0.96] tracking-tight text-foreground sm:text-6xl lg:text-6xl xl:text-7xl">
+          <h1 className="hero-reveal mt-7 text-balance text-5xl font-semibold leading-[0.93] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
             I build websites that help businesses get found and contacted.
           </h1>
 
@@ -27,8 +28,8 @@ export function Hero() {
             touch.
           </p>
 
-          <div className="hero-reveal mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="h-12 rounded-xl px-6 text-base">
+          <div className="hero-reveal mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+            <Button asChild className="h-12 rounded-lg px-6 text-base">
               <Link href="/#contact">
                 Start a project
                 <ArrowRight className="ml-2 size-4" />
@@ -37,14 +38,12 @@ export function Hero() {
             <Button
               asChild
               variant="ghost"
-              className="glass-card h-12 rounded-xl px-6 text-base text-foreground hover:bg-white/10"
+              className="h-12 rounded-lg border border-white/10 bg-transparent px-6 text-base text-foreground hover:bg-white/10"
             >
               <Link href="/#work">See client work</Link>
             </Button>
           </div>
         </div>
-
-        <ProjectSignalDeck />
       </div>
 
       <div
