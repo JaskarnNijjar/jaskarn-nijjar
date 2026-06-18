@@ -66,7 +66,8 @@ export function ProjectSignalDeck() {
             src={activeProject.previewImage}
             alt={`${activeProject.name} website preview`}
             fill
-            loading="eager"
+            priority={activeIndex === 0}
+            loading={activeIndex === 0 ? undefined : "eager"}
             sizes="(min-width: 1024px) 48vw, 92vw"
             className="animate-in fade-in duration-700 object-cover object-top"
           />

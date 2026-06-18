@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -40,6 +39,13 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const ulRef = useRef<HTMLUListElement>(null);
+  const [pill, setPill] = useState({
+    left: 0,
+    width: 0,
+    visible: false,
+    animate: false,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -47,6 +53,33 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const ul = ulRef.current;
+    if (!ul) return;
+    const measure = () => {
+      const targetHref =
+        hovered ??
+        NAV_LINKS.find((l) => isActive(pathname, l.href))?.href ??
+        null;
+      const el = targetHref
+        ? ul.querySelector<HTMLElement>(`[data-nav-item="${targetHref}"]`)
+        : null;
+      if (!el) {
+        setPill((p) => ({ ...p, visible: false }));
+        return;
+      }
+      setPill((prev) => ({
+        left: el.offsetLeft,
+        width: el.offsetWidth,
+        visible: true,
+        animate: prev.visible,
+      }));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [hovered, pathname]);
 
   return (
     <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
@@ -62,26 +95,31 @@ export function Navbar() {
         <Wordmark />
 
         <ul
+          ref={ulRef}
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex"
           onMouseLeave={() => setHovered(null)}
         >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-0 h-full rounded-lg border border-white/10 bg-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)]"
+            style={{
+              transform: `translateX(${pill.left}px)`,
+              width: pill.width,
+              opacity: pill.visible ? 1 : 0,
+              transitionProperty: "transform, width",
+              transitionDuration: pill.animate ? "300ms, 300ms" : "0ms, 0ms",
+              transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          />
           {NAV_LINKS.map((link) => {
             const active = isActive(pathname, link.href);
-            const showPill = hovered ? hovered === link.href : active;
             return (
               <li
                 key={link.href}
+                data-nav-item={link.href}
                 className="relative"
                 onMouseEnter={() => setHovered(link.href)}
               >
-                {showPill && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    aria-hidden
-                    className="absolute inset-0 rounded-lg border border-white/10 bg-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)]"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
                 <Link
                   href={link.href}
                   aria-current={active ? "page" : undefined}
