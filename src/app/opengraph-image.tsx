@@ -57,7 +57,7 @@ export default function OpengraphImage() {
             maxWidth: 920,
           }}
         >
-          I build websites that help businesses get found and contacted.
+          Websites and software that help businesses grow.
         </div>
         <div
           style={{

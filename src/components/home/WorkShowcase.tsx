@@ -18,7 +18,7 @@ export function WorkShowcase() {
             id="work-heading"
             className="mt-5 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-6xl"
           >
-            Recent business websites.
+            Recent business projects.
           </h2>
         </div>
         <p className="max-w-2xl text-base leading-7 text-foreground-muted lg:justify-self-end">

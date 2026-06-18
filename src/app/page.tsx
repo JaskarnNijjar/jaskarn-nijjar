@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     url: "/",
     title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
     description:
-      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+      "Websites, custom software, and automations for businesses, built by a software developer based in Vancouver, BC.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jaskarn Nijjar | Software Developer in Vancouver, BC",
     description:
-      "Custom websites and full-stack applications for businesses, built by a software developer based in Vancouver, BC.",
+      "Websites, custom software, and automations for businesses, built by a software developer based in Vancouver, BC.",
   },
 };
 
@@ -40,11 +40,13 @@ export default function Home() {
         email: SITE.email,
         jobTitle: SITE.role,
         knowsAbout: [
-          "Website design",
-          "Next.js development",
+          "Website development",
+          "Custom software development",
+          "Business automation",
+          "AI integration",
           "Local SEO",
           "Performance optimization",
-          "Full-stack software development",
+          "Full-stack development",
         ],
         sameAs: [SITE.github, SITE.linkedin],
         worksFor: { "@id": `${SITE.url}/#business` },

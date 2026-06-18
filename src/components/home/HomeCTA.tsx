@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/constants";
 
 export function HomeCTA() {
-  const subject = encodeURIComponent("Website project inquiry");
+  const subject = encodeURIComponent("Project inquiry");
   const body = encodeURIComponent(
-    "Business name:\nCurrent website:\nWhat I need the site to do:\nTimeline:\n",
+    "Business name:\nWhat the business does:\nWhat you want to build or fix:\nTimeline:\n",
   );
 
   return (
@@ -25,11 +25,11 @@ export function HomeCTA() {
               id="contact-heading"
               className="mt-5 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-6xl"
             >
-              Need a website for your business?
+              Need a website or custom software?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-foreground-muted">
               Send the rough version. Tell me what the business does, what is
-              not working, and what you want the site to help with.
+              not working, and what you want to build or fix.
             </p>
           </div>
 

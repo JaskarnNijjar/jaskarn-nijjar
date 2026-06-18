@@ -1,26 +1,26 @@
 const steps = [
   {
     title: "Understand the business",
-    text: "I look at what you sell, who needs it, where the site is losing people, and what the site needs visitors to do.",
-    output: "Site direction",
-    checks: ["Offer", "Audience", "Next step"],
+    text: "I look at what you sell, who needs it, where you are losing people, and what the project actually needs to do.",
+    output: "Project direction",
+    checks: ["Goals", "Audience", "Next step"],
   },
   {
-    title: "Plan the pages",
-    text: "We keep the structure tight: services, proof, location, FAQs when useful, and a clear contact path.",
-    output: "Page map",
-    checks: ["Services", "Proof", "Contact"],
+    title: "Plan the build",
+    text: "We agree on scope and structure: the pages, features, or tools involved, and a clear path for customers to act.",
+    output: "Build plan",
+    checks: ["Scope", "Structure", "Contact"],
   },
   {
     title: "Design and build",
-    text: "I build the site in Next.js with responsive layouts, optimized images, clean metadata, and accessible markup.",
-    output: "Working site",
-    checks: ["Design", "Speed", "SEO"],
+    text: "I build it with clean, fast, accessible code, whether that is a website, an automation, or a custom tool.",
+    output: "Working build",
+    checks: ["Design", "Speed", "Quality"],
   },
   {
     title: "Launch and improve",
-    text: "After launch, I can help with edits, new sections, performance fixes, and landing pages as the business changes.",
-    output: "Live updates",
+    text: "After launch I can keep improving it with new sections, features, fixes, and changes as the business grows.",
+    output: "Live and improving",
     checks: ["Deploy", "Measure", "Improve"],
   },
 ] as const;

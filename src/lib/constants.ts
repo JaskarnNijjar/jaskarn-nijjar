@@ -38,7 +38,7 @@ export const CLIENT_PROJECTS = [
     displayUrl: "missioninsulation.ca",
     eyebrow: "Residential and commercial insulation",
     summary:
-      "A sharp local-service site built to make estimates easier to request.",
+      "A custom website for an Abbotsford based insulation company that serves homes and businesses across the Lower Mainland. It loads quickly, is set up to show in local search, and makes requesting an estimate simple.",
   },
   {
     name: "Edge Insulation",
@@ -50,7 +50,7 @@ export const CLIENT_PROJECTS = [
     displayUrl: "edgeinsulation.ca",
     eyebrow: "Surrey insulation contractor",
     summary:
-      "A fast business website for insulation services, credibility, and calls.",
+      "A custom website for a Surrey insulation contractor working across the Lower Mainland, from new construction to renovations. Fast pages and a clean search setup help the right customers find it and reach out for a quote.",
   },
   {
     name: "GoViral Campaigns",
@@ -62,7 +62,7 @@ export const CLIENT_PROJECTS = [
     displayUrl: "goviralcampaigns.com",
     eyebrow: "Influencer marketing agency",
     summary:
-      "A polished agency presence designed to explain offers and capture interest.",
+      "A custom website for an influencer marketing agency that connects brands with creators and runs campaigns on TikTok, Instagram, and YouTube. It loads fast and is easy to find on Google, so more of the right brands turn into inquiries.",
   },
   {
     name: "NCA Tires",
@@ -74,7 +74,7 @@ export const CLIENT_PROJECTS = [
     displayUrl: "ncatires.netlify.app",
     eyebrow: "Commercial tire distribution",
     summary:
-      "A practical distribution site focused on product clarity and trust.",
+      "A custom website for a commercial tire distribution and maintenance business. Quick loading and search-friendly pages make the product range easy to find and easy to inquire about.",
   },
 ] as const;
 
@@ -107,24 +107,24 @@ export const VALUE_PROPS = [
 
 export const SERVICES = [
   {
-    title: "New websites",
+    title: "Business websites",
     summary:
-      "A complete business site with pages, copy structure, project proof, and contact paths.",
+      "A complete site built around your services, proof, and contact paths. Fast to load and easy for customers to act on.",
   },
   {
-    title: "Website redesigns",
+    title: "Redesigns and SEO",
     summary:
-      "A cleaner structure and stronger visuals for a site that already exists but is not working.",
+      "A cleaner, faster version of a site that feels dated or is not converting, with the search and speed basics handled.",
   },
   {
-    title: "SEO and speed cleanup",
+    title: "Automations and integrations",
     summary:
-      "Metadata, page structure, image optimization, and technical fixes that support search.",
+      "Connect the tools a business already uses and remove the manual steps, like syncing leads, sending follow-ups, and moving data between systems.",
   },
   {
-    title: "Ongoing improvements",
+    title: "Custom software and AI",
     summary:
-      "New sections, service pages, content updates, bug fixes, and conversion improvements.",
+      "Internal tools, dashboards, and AI features built for a specific job, from a small workflow fix to a full app.",
   },
 ] as const;
 

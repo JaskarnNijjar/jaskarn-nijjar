@@ -19,13 +19,14 @@ export function Hero() {
           </div>
 
           <h1 className="hero-reveal mt-7 text-balance text-5xl font-semibold leading-[0.93] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
-            I build websites that help businesses get found and contacted.
+            I build websites and software that help businesses grow.
           </h1>
 
           <p className="hero-reveal mt-7 max-w-2xl text-pretty text-lg leading-8 text-foreground-muted sm:text-xl">
-            I work with business owners who need a clear site, real project
-            proof, search basics, and a simple way for customers to get in
-            touch.
+            Most of my work is building business websites that load fast,
+            rank on Google, and turn visitors into customers. When a business
+            needs more than a site, I also build the software behind it:
+            internal tools, automations, and AI features that save time.
           </p>
 
           <div className="hero-reveal mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">

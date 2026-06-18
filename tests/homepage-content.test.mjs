@@ -88,7 +88,7 @@ assert.match(hero, /HeroKineticBackdrop/);
 assert.match(hero, /HeroGlassShowcase/);
 assert.match(
   hero,
-  /I build websites that help businesses get found and contacted/,
+  /I build websites and software that help businesses grow/,
 );
 assert.doesNotMatch(hero, /HeroCaseboard|HeroGlassField|ProjectSignalDeck|glass-card/);
 assert.ok(existsSync(heroKineticPath), "hero kinetic backdrop component should exist");

@@ -1,20 +1,20 @@
-import { Gauge, Search, SquarePen, Wrench } from "lucide-react";
+import { Cpu, Globe, Workflow, Wrench } from "lucide-react";
 import type { CSSProperties } from "react";
 
 import { SERVICES } from "@/lib/constants";
 
-const icons = [SquarePen, Wrench, Search, Gauge];
+const icons = [Globe, Wrench, Workflow, Cpu];
 const serviceLabels = [
-  "Launch-ready pages",
-  "Sharper first impression",
-  "Technical cleanup",
-  "Monthly improvements",
+  "New build",
+  "Cleaner and faster",
+  "Less manual work",
+  "Built for the job",
 ] as const;
 const serviceSignals = [
   ["Pages", "Proof", "Contact"],
-  ["Structure", "Visuals", "Trust"],
-  ["Metadata", "Images", "Vitals"],
-  ["Sections", "Fixes", "Conversion"],
+  ["Structure", "Speed", "Search"],
+  ["Integrations", "Workflows", "Sync"],
+  ["Tools", "Dashboards", "AI"],
 ] as const;
 const serviceAccents = ["#00e5ff", "#f5f5ef", "#a6a69d", "#0b7f8d"] as const;
 
@@ -37,9 +37,9 @@ export function HomeServices() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-foreground-muted lg:justify-self-end">
-            Most business sites need the same fundamentals done well: clear
-            pages, real proof, fast loading, search-friendly structure, and an
-            easy way to contact the business.
+            Websites are the core of what I do. I also build the software
+            around them: internal tools, automations, and AI features that take
+            repetitive work off your plate.
           </p>
         </div>
 
